@@ -45,7 +45,7 @@ if (isset($_POST['btn_modifier'])) {
     <div class="container">
         <header><h1>Modifier l'étudiant</h1></header>
         
-        <form method="POST">
+        <form method="POST" id="form-update">
             <!-- Champ caché pour garder l'ID de l'étudiant -->
             <input type="hidden" name="id_etu" value="<?= $etudiant['id_etu'] ?>">
 
@@ -74,5 +74,6 @@ if (isset($_POST['btn_modifier'])) {
             <a href="index.php" style="display:block; text-align:center; margin-top:10px; color:#7f8c8d; text-decoration:none;">Annuler</a>
         </form>
     </div>
+    <script src="assets/script.js"></script>
 </body>
 </html>

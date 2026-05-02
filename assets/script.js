@@ -19,3 +19,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+
+// On récupère le formulaire de modification par son ID
+const formUpdate = document.getElementById('form-update');
+
+if (formUpdate) {
+    formUpdate.addEventListener('submit', function(event) {
+        // Affichage de la confirmation
+        const confirmation = confirm("Voulez-vous vraiment enregistrer ces modifications ?");
+        
+        // Si l'utilisateur clique sur "Annuler", on bloque l'envoi du formulaire
+        if (!confirmation) {
+            event.preventDefault();
+        }
+    });
+}
