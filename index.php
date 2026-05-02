@@ -83,7 +83,7 @@
                             <td>
                                 <!-- Liens pour les prochaines étapes : Modifier et Supprimer -->
                                 <a href="update.php?id=<?= $etu['id_etu'] ?>" class="btn-edit">Modifier</a>
-                                <a href="delete.php?id=<?= $etu['id_etu'] ?>" class="btn-delete" onclick="return confirm('Supprimer cet étudiant ?')">Supprimer</a>
+                                <a href="delete.php?id=<?= $etu['id_etu'] ?>" class="btn-delete btn-confirmer">Supprimer</a>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -93,6 +93,6 @@
         </main>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 </html>
