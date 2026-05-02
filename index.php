@@ -4,6 +4,15 @@
     // 1. Récupérer les filières depuis la base de données
     $query = $k->query("SELECT id_fil, lib_fil FROM filieres");
     $filieres = $query->fetchAll();
+
+    // 2. Récupération des étudiants avec le nom de leur filière
+    // On lie la table etudiant à la table filieres (f)
+    $sqlEtu = "SELECT e.id_etu, e.nom, e.prenom, f.lib_fil 
+           FROM etudiants e 
+           JOIN filieres f ON e.id_fil = f.id_fil 
+           ORDER BY e.id_etu DESC";
+    $queryEtu = $k->query($sqlEtu);
+    $etudiants = $queryEtu->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +62,33 @@
                         Enregistrer l'étudiant
                     </button>
                 </form>
+            </section>
+            <section class="list-section">
+                <h2>Liste des étudiants enregistrés</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Filière</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($etudiants as $etu): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($etu['nom']) ?></td>
+                            <td><?= htmlspecialchars($etu['prenom']) ?></td>
+                            <td><?= htmlspecialchars($etu['lib_fil']) ?></td>
+                            <td>
+                                <!-- Liens pour les prochaines étapes : Modifier et Supprimer -->
+                                <a href="update.php?id=<?= $etu['id_etu'] ?>" class="btn-edit">Modifier</a>
+                                <a href="delete.php?id=<?= $etu['id_etu'] ?>" class="btn-delete" onclick="return confirm('Supprimer cet étudiant ?')">Supprimer</a>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </section>
         </main>
     </div>
