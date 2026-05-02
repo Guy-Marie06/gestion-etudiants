@@ -1,5 +1,4 @@
 <?php
-    $k = new PDO('mysql:host =  127.0.0.1; dbname = gestion-etudiants', 'root'; '');
-
+    $k = new PDO("mysql:host=localhost;dbname=gestion_etudiants;charset=utf8","root","");    
 ?>
 
