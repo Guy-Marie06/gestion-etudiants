@@ -1,16 +1,9 @@
 <?php
     require 'Connexion.php';
-?>
 
-<?php
-try {
     // 1. Récupérer les filières depuis la base de données
-    // On utilise la variable $k définie dans ton fichier de connexion
     $query = $k->query("SELECT id_fil, lib_fil FROM filieres");
-    $filieres = $query->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Erreur lors de la récupération des filières : " . $e->getMessage());
-}
+    $filieres = $query->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +12,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Étudiants</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
