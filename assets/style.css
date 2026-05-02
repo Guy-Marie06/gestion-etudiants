@@ -95,3 +95,29 @@ input:focus, select:focus {
         padding: 15px;
     }
 }
+.list-section {
+    margin-top: 40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Boutons d'action */
+.btn-edit { color: var(--accent-color); text-decoration: none; margin-right: 10px; }
+.btn-delete { color: #e74c3c; text-decoration: none; font-weight: bold; }
+
+.btn-edit:hover, .btn-delete:hover { text-decoration: underline; }
